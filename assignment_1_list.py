@@ -1,5 +1,6 @@
 from collections import Counter
-def daily_participants(participants_list,total_days):
+def daily_participants(participants_list):
+    total_days=len(participants_list)
     TOTAL_DAYS=[persion for persion,days in most_common if days==total_days]
     print(f"Daily participants : {TOTAL_DAYS}")
     return(participants_list)
@@ -20,6 +21,6 @@ participants_list=[['sam','emma','joan','krish','john','desmond','tom','nicole']
 flatten_list=[num for sublist in participants_list for num in sublist]
 counter=Counter(flatten_list)
 most_common=counter.most_common()
-daily_participants(participants_list,6)
+daily_participants(participants_list)
 one_time_participants(participants_list)
 first_day_only_participants(participants_list)
