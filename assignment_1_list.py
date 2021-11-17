@@ -1,38 +1,25 @@
 from collections import Counter
-def daily_participants(participants_list,n):
-    x=[]
-    for i,j in z:
-        if j==6:
-            x.append(i)
-    print("Daily participants are : ",x)
+def daily_participants(participants_list,total_days):
+    TOTAL_DAYS=[persion for persion,days in most_common if days==total_days]
+    print(f"Daily participants : {TOTAL_DAYS}")
     return(participants_list)
 def one_time_participants(participants_list):
-    x=[]
-    for i,j in z:
-        if j==1:
-            x.append(i)
-    print("One time participants are : ",x)
+    ONE_DAY=[persion for persion,days in most_common if days==1]
+    print(f"One time participants : {ONE_DAY}")
     return(participants_list)
 def first_day_only_participants(participants_list):
-    x=[]
-    for i,j in z:
-        if j==1:
-            x.append(i)
-    y=[]
-    for i in x:
-        for j in participants_list[0]:
-            if i==j:
-                y.append(i)
-    print("Firt day only participants are : ",y)
+    FIRST_DAY_ONLY=[persion for persion,days in most_common if days==1 for persions in participants_list[0] if persion==persions]
+    print(f"First_day_only_participants : {FIRST_DAY_ONLY}")
+    return(participants_list)
 participants_list=[['sam','emma','joan','krish','john','desmond','tom','nicole'],
                    ['brad','walter','sam','krish','desmond','jennifer'],
                    ['tom','krish','emma','mia','nicole','sam','desmond'],
                    ['desmond','sam','krish','mia','harry'],
                    ['ron','ginny','ted','krish','mia','sam','sachin','desmond','kapil'],
                    ['krish','brad','walter','jennifer','desmond','harry','nicole','sam']]
-c=[num for sublist in participants_list for num in sublist]
-a=Counter(c)
-z=a.most_common()
+flatten_list=[num for sublist in participants_list for num in sublist]
+counter=Counter(flatten_list)
+most_common=counter.most_common()
 daily_participants(participants_list,6)
 one_time_participants(participants_list)
 first_day_only_participants(participants_list)
